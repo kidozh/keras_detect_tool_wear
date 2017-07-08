@@ -8,12 +8,12 @@ from keras.callbacks import TensorBoard
 import numpy as np
 
 data = dataSet(force_update=False,sample_skip_num=10)
-MODEL_PATH = 'model_cnn_skip_%s.dat'%(data.sample_skip_num)
+MODEL_PATH = 'model_LSTM_FIXED_STEP_skip_%s.dat'%(data.sample_skip_num)
 # currently no data get found
 x = data.get_all_sample_data()
 y = data.get_res_data_in_numpy
 
-BATCH_SIZE = 1
+BATCH_SIZE = 10
 # only pick up first 2000 points
 TIME_STEP = 2000
 INPUT_DIM = 7
@@ -35,15 +35,18 @@ x_train = np.zeros(shape=(SAMPLE_NUM,TIME_STEP,INPUT_DIM))
 for index,y_dat in enumerate(y):
     x_train[index] = x[index][:TIME_STEP]
 
-model = build_multi_1d_cnn_model(BATCH_SIZE,
-                              TIME_STEP,
-                              INPUT_DIM,
-                              OUTPUT_DIM,
-                              dropout=0.1,
-                              kernel_size=3,
-                                pooling_size = 2,
-                                conv_dim=(128,64,32),
-                                 stack_loop_num=3)
+# model = build_multi_1d_cnn_model(BATCH_SIZE,
+#                               TIME_STEP,
+#                               INPUT_DIM,
+#                               OUTPUT_DIM,
+#                               dropout=0.1,
+#                               kernel_size=5,
+#                                 conv_dim=(128,64,32),
+#                                  stack_loop_num=3)
+
+model = build_stateful_lstm_model_with_normalization(BATCH_SIZE,TIME_STEP,INPUT_DIM,OUTPUT_DIM)
+
+
 
 # deal with x,y
 
@@ -52,7 +55,7 @@ model = build_multi_1d_cnn_model(BATCH_SIZE,
 # x_train = x
 y_train = y.reshape(SAMPLE_NUM,OUTPUT_DIM)
 
-model.fit(x_train,y_train,validation_split=0,epochs=50,callbacks=[TensorBoard()],batch_size=10)
+model.fit(x_train,y_train,validation_split=0.1,epochs=50,callbacks=[TensorBoard()],batch_size=10)
 
 # for index,y_dat in enumerate(y):
 #     print('Run test on %s' %(index))
