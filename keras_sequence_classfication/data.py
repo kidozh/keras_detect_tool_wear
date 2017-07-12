@@ -85,7 +85,7 @@ class dataSet(object):
 
 
 class testDataSet(object):
-    res_data_path = 'c6_wear.csv'
+    res_data_path = 'c4_wear.csv'
     cache_dir_path = '.test_cache/'
     res_data_storage = 'test_res_dat'
     sample_data_storage = 'test_sample_dat'
@@ -102,7 +102,7 @@ class testDataSet(object):
 
         pass
     def get_sample_csv_path(self,num):
-        return 'c6/c_6_%03d.csv' %(num)
+        return 'c4/c_4_%03d.csv' %(num)
 
     def get_signal_data_by_pandas(self,num):
         return pd.read_csv(self.get_sample_csv_path(num),header=None)
@@ -178,7 +178,7 @@ class allDataSet(object):
     def res_data_path(self):
         return 'c%s_wear.csv' %(self.sample_loc)
 
-    def __init__(self, force_update=False, sample_skip_num=5,sample_loc=1):
+    def __init__(self, force_update=False, sample_skip_num=50,sample_loc=1):
         self.sample_skip_num = sample_skip_num
         self.force_update = force_update
         pass

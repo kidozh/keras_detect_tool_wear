@@ -4,7 +4,7 @@
 from keras_sequence_classfication.models import *
 from keras_sequence_classfication.data import *
 from keras.callbacks import TensorBoard
-from keras_sequence_classfication.residual_model import build_main_residual_network
+from keras_sequence_classfication.residual_model import *
 
 import numpy as np
 
@@ -18,7 +18,7 @@ DEPTH = 2
 
 data = allDataSet(force_update=False,sample_skip_num=50)
 
-MODEL_PATH = 'model_residual_cnn_skip_%s_depth_%s.dat'%(data.sample_skip_num,DEPTH)
+MODEL_PATH = 'model_freq_residual_cnn_skip_%s_depth_%s.dat'%(data.sample_skip_num,DEPTH)
 # currently no data get found
 # x = data.get_all_sample_data()
 # y = data.get_res_data_in_numpy
@@ -50,24 +50,40 @@ SAMPLE_NUM,_,OUTPUT_DIM=y.shape
 
 MAX_TIME_STEP = 5000
 
-x_train = np.zeros(shape=(SAMPLE_NUM,MAX_TIME_STEP,INPUT_DIM))
+# generate a 2 channel frequency picture
+x_train = np.zeros(shape=(SAMPLE_NUM,MAX_TIME_STEP,INPUT_DIM,2),dtype=np.complex64)
 
+
+# need to spilt complex into two parts
+# choose channel last pattern
+for index,batch in enumerate(y):
+    for direct_dim in range(INPUT_DIM):
+        time_signal = x[index][:,direct_dim]
+        # print(time_signal.shape)
+        freq_signal = np.fft.fft(time_signal)
+        #x[index][:,direct_dim] = freq_signal
+        freq_len = len(freq_signal)
+        x_train[index][:freq_len,direct_dim,0] = np.real(freq_signal[:MAX_TIME_STEP])
+        x_train[index][:freq_len,direct_dim,1] = np.imag(freq_signal[:MAX_TIME_STEP])
 
 # for index,y_dat in enumerate(y):
-#     print(index,x[index].shape)
+#     # print(x[index].shape)
+#     for index_a,j in enumerate(x[index][:MAX_TIME_STEP]):
+#         x_train[index][index_a] = x[index][index_a]
+#     #x_train[index] = x[index]
 
-for index,y_dat in enumerate(y):
-    # print(x[index].shape)
-    for index_a,j in enumerate(x[index][:MAX_TIME_STEP]):
-        x_train[index][index_a] = x[index][index_a]
-    #x_train[index] = x[index]
+print(x_train.shape)
 
 y_train = y.reshape(SAMPLE_NUM,OUTPUT_DIM)
 
 print(y_train.shape)
 
+del x,y
+
 def train():
-    model = build_main_residual_network(BATCH_SIZE,MAX_TIME_STEP,INPUT_DIM,OUTPUT_DIM,loop_depth=DEPTH)
+    print('Done')
+    model = build_2d_main_residual_network(BATCH_SIZE,MAX_TIME_STEP,INPUT_DIM,2,OUTPUT_DIM,loop_depth=DEPTH)
+    # model = build_main_residual_network(BATCH_SIZE,MAX_TIME_STEP,INPUT_DIM,OUTPUT_DIM,loop_depth=DEPTH)
 
     # deal with x,y
 
@@ -76,7 +92,7 @@ def train():
     # x_train = x
 
 
-    model.fit(x_train, y_train, validation_split=0.1, epochs=50  , callbacks=[TensorBoard(log_dir='./residual_cnn_dir_deep_%s_all'%(DEPTH))])
+    model.fit(x_train, y_train, validation_split=0.1, epochs=50, callbacks=[TensorBoard(log_dir='./residual_freq_cnn_dir_deep_%s_all'%(DEPTH))])
 
     import random
 
@@ -107,9 +123,10 @@ def show_result():
 
     for index, y_dat in enumerate(y):
         # print(x[index].shape)
+        freq_info = np.fft.fft(x[index][:MAX_TIME_STEP])
         for index_a, j in enumerate(x[index][:MAX_TIME_STEP]):
             # add fft as
-            x_train[index][index_a] = x[index][index_a]
+            x_train[index][index_a] = freq_info[index_a]
 
     y_train = y.reshape(SAMPLE_NUM, OUTPUT_DIM)
 
@@ -178,8 +195,10 @@ def show_result():
 
     for index, y_dat in enumerate(y):
         # print(x[index].shape)
+        freq_info = np.fft.fft(x[index][:MAX_TIME_STEP])
         for index_a, j in enumerate(x[index][:MAX_TIME_STEP]):
-            x_train[index][index_a] = x[index][index_a]
+            # add fft as
+            x_train[index][index_a] = freq_info[index_a]
 
     # for index, y_dat in enumerate(y):
     #     # print(x[index].shape)
