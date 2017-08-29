@@ -39,10 +39,10 @@ def first_block(tensor_input,filters,kernel_size=3,pooling_size=1,dropout=0.5):
     out = BatchNormalization()(out)
     out = Activation('relu')(out)
     out = Dropout(dropout)(out)
-    out = Conv1D(k2,kernel_size,padding='same')(out)
+    out = Conv1D(k2,kernel_size,strides=2,padding='same')(out)
 
 
-    pooling = MaxPooling1D(pooling_size,padding='same')(tensor_input)
+    pooling = MaxPooling1D(pooling_size,strides=2,padding='same')(tensor_input)
 
 
     # out = merge([out,pooling],mode='sum')
@@ -60,10 +60,10 @@ def repeated_block(x,filters,kernel_size=3,pooling_size=1,dropout=0.5):
     out = BatchNormalization()(out)
     out = Activation('relu')(out)
     out = Dropout(dropout)(out)
-    out = Conv1D(k2,kernel_size,padding='same')(out)
+    out = Conv1D(k2,kernel_size,strides=2,padding='same')(out)
 
 
-    pooling = MaxPooling1D(pooling_size,padding='same')(x)
+    pooling = MaxPooling1D(pooling_size,strides=2,padding='same')(x)
 
     out = add([out, pooling])
 
