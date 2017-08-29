@@ -51,7 +51,7 @@ SAMPLE_NUM,_,OUTPUT_DIM=y.shape
 MAX_TIME_STEP = 5000
 
 # generate a 2 channel frequency picture
-x_train = np.zeros(shape=(SAMPLE_NUM,MAX_TIME_STEP,INPUT_DIM,2),dtype=np.complex64)
+x_train = np.zeros(shape=(SAMPLE_NUM,MAX_TIME_STEP,INPUT_DIM,2),dtype=np.float32)
 
 
 # need to spilt complex into two parts
@@ -119,19 +119,33 @@ def show_result():
 
     SAMPLE_NUM, _, OUTPUT_DIM = y.shape
 
-    x_train = np.zeros(shape=(SAMPLE_NUM, MAX_TIME_STEP, INPUT_DIM),dtype=np.complex32)
+    x_train = np.zeros(shape=(SAMPLE_NUM, MAX_TIME_STEP, INPUT_DIM, 2), dtype=np.float32)
 
-    for index, y_dat in enumerate(y):
-        # print(x[index].shape)
-        freq_info = np.fft.fft(x[index][:MAX_TIME_STEP])
-        for index_a, j in enumerate(x[index][:MAX_TIME_STEP]):
-            # add fft as
-            x_train[index][index_a] = freq_info[index_a]
+    # need to spilt complex into two parts
+    # choose channel last pattern
+    for index, batch in enumerate(y):
+        for direct_dim in range(INPUT_DIM):
+            time_signal = x[index][:, direct_dim]
+            # print(time_signal.shape)
+            freq_signal = np.fft.fft(time_signal)
+            # x[index][:,direct_dim] = freq_signal
+            freq_len = len(freq_signal)
+            x_train[index][:freq_len, direct_dim, 0] = np.real(freq_signal[:MAX_TIME_STEP])
+            x_train[index][:freq_len, direct_dim, 1] = np.imag(freq_signal[:MAX_TIME_STEP])
+
+    # for index, y_dat in enumerate(y):
+    #     # print(x[index].shape)
+    #     freq_info = np.fft.fft(x[index][:MAX_TIME_STEP])
+    #     for index_a, j in enumerate(x[index][:MAX_TIME_STEP]):
+    #         # add fft as
+    #         x_train[index][index_a] = freq_info[index_a]
 
     y_train = y.reshape(SAMPLE_NUM, OUTPUT_DIM)
 
     while True:
-        numb = input('Please input your data')
+        #break
+        #numb = input('Please input your data')
+        numb = 'c'
         if numb == 'c':
             break
         else:
@@ -165,6 +179,10 @@ def show_result():
         real_b[index] = y_train[index][1]
         real_c[index] = y_train[index][2]
 
+    a = a + np.full(SAMPLE_NUM, real_a[100] - a[100])
+    b = b + np.full(SAMPLE_NUM, real_b[100] - b[100])
+    c = c + np.full(SAMPLE_NUM, real_c[100] - c[100])
+
     plt.plot(np.arange(SAMPLE_NUM),a,label='a')
     plt.plot(np.arange(SAMPLE_NUM), real_a, label='real_a')
     plt.title('A')
@@ -191,14 +209,28 @@ def show_result():
 
     SAMPLE_NUM, _, OUTPUT_DIM = y.shape
 
-    x_train = np.zeros(shape=(SAMPLE_NUM, MAX_TIME_STEP, INPUT_DIM))
+    # x_train = np.zeros(shape=(SAMPLE_NUM, MAX_TIME_STEP, INPUT_DIM))
 
-    for index, y_dat in enumerate(y):
-        # print(x[index].shape)
-        freq_info = np.fft.fft(x[index][:MAX_TIME_STEP])
-        for index_a, j in enumerate(x[index][:MAX_TIME_STEP]):
-            # add fft as
-            x_train[index][index_a] = freq_info[index_a]
+    x_train = np.zeros(shape=(SAMPLE_NUM, MAX_TIME_STEP, INPUT_DIM, 2), dtype=np.float32)
+
+    # need to spilt complex into two parts
+    # choose channel last pattern
+    for index, batch in enumerate(y):
+        for direct_dim in range(INPUT_DIM):
+            time_signal = x[index][:, direct_dim]
+            # print(time_signal.shape)
+            freq_signal = np.fft.fft(time_signal)
+            # x[index][:,direct_dim] = freq_signal
+            freq_len = len(freq_signal)
+            x_train[index][:freq_len, direct_dim, 0] = np.real(freq_signal[:MAX_TIME_STEP])
+            x_train[index][:freq_len, direct_dim, 1] = np.imag(freq_signal[:MAX_TIME_STEP])
+
+    # for index, y_dat in enumerate(y):
+    #     # print(x[index].shape)
+    #     freq_info = np.fft.fft(x[index][:MAX_TIME_STEP])
+    #     for index_a, j in enumerate(x[index][:MAX_TIME_STEP]):
+    #         # add fft as
+    #         x_train[index][index_a] = freq_info[index_a]
 
     # for index, y_dat in enumerate(y):
     #     # print(x[index].shape)
@@ -226,6 +258,10 @@ def show_result():
         real_b[index] = y_train[index][1]
         real_c[index] = y_train[index][2]
 
+        # a[index] = everyDat[0] + np.full(SAMPLE_NUM,a[index][100]-everyDat[0][100])
+        # b[index] = everyDat[0] + np.full(SAMPLE_NUM, b[index][100] + everyDat[0][100])
+        # c[index] = everyDat[0] + np.full(SAMPLE_NUM, c[index][100] + everyDat[0][100])
+
     plt.plot(np.arange(SAMPLE_NUM), a, label='a')
     plt.plot(np.arange(SAMPLE_NUM), real_a, label='real_a')
     plt.title('TEST_A')
@@ -246,5 +282,5 @@ def show_result():
 
 
 if __name__ == '__main__':
-    train()
+    # train()
     show_result()

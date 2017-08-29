@@ -4,13 +4,13 @@
 from keras_sequence_classfication.models import *
 from keras_sequence_classfication.data import *
 from keras.callbacks import TensorBoard
-from keras_sequence_classfication.residual_model import build_main_residual_network
+from keras_sequence_classfication.residual_model import build_main_residual_network,build_main_residual_network_with_lstm
 
 import numpy as np
 
 # DEPTH 2 is now best stratedge
 
-DEPTH = 2
+DEPTH = 10
 
 
 # NOTICE!!!!
@@ -18,7 +18,7 @@ DEPTH = 2
 
 data = allDataSet(force_update=False,sample_skip_num=50)
 
-MODEL_PATH = 'model_residual_cnn_skip_%s_depth_%s.dat'%(data.sample_skip_num,DEPTH)
+MODEL_PATH = 'model_residual_cnn_with_lstm_skip_%s_depth_%s.dat'%(data.sample_skip_num,DEPTH)
 # currently no data get found
 # x = data.get_all_sample_data()
 # y = data.get_res_data_in_numpy
@@ -67,7 +67,7 @@ y_train = y.reshape(SAMPLE_NUM,OUTPUT_DIM)
 print(y_train.shape)
 
 def train():
-    model = build_main_residual_network(BATCH_SIZE,MAX_TIME_STEP,INPUT_DIM,OUTPUT_DIM,loop_depth=DEPTH)
+    model = build_main_residual_network_with_lstm(BATCH_SIZE,MAX_TIME_STEP,INPUT_DIM,OUTPUT_DIM,loop_depth=DEPTH)
 
     # deal with x,y
 
@@ -76,7 +76,7 @@ def train():
     # x_train = x
 
 
-    model.fit(x_train, y_train, validation_split=0.1, epochs=50  , callbacks=[TensorBoard(log_dir='./residual_cnn_dir_deep_%s_all'%(DEPTH))])
+    model.fit(x_train, y_train, validation_split=0.1, epochs=1000  , callbacks=[TensorBoard(log_dir='./residual_cnn_dir_with_lstm_deep_%s_all'%(DEPTH))])
 
     import random
 
@@ -103,7 +103,7 @@ def show_result():
 
     SAMPLE_NUM, _, OUTPUT_DIM = y.shape
 
-    x_train = np.zeros(shape=(SAMPLE_NUM, MAX_TIME_STEP, INPUT_DIM))
+    x_train = np.zeros(shape=(SAMPLE_NUM, MAX_TIME_STEP, INPUT_DIM),dtype=np.complex32)
 
     for index, y_dat in enumerate(y):
         # print(x[index].shape)
@@ -227,5 +227,5 @@ def show_result():
 
 
 if __name__ == '__main__':
-    # train()
+    train()
     show_result()
