@@ -14,3 +14,13 @@ This program are under development.
 
 + Tensorflow / Theano / CNTK
 + Keras
+
+# Introduction
+
+A beamer in `demonstration_of_work` is to demonstrate what we have done in summer holidays. It is writen in Simplified Chinese.
+
+Please feel free to fork it.
+
+# Licence
+
+MIT LICENSE
