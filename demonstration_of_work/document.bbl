@@ -1,0 +1,32 @@
+\begin{thebibliography}{}
+
+\bibitem[2010, ]{phm2010}
+2010, P.
+\newblock 2010 phm society conference data challenge.
+\newblock \url{https://www.phmsociety.org/competition/phm/10}.
+\newblock Accessed Jun 2, 2010.
+
+\bibitem[Cho et~al., 1999]{cho1999state}
+Cho, D.-W., Lee, S.~J., and Chu, C.~N. (1999).
+\newblock The state of machining process monitoring research in korea.
+\newblock {\em International Journal of Machine Tools and Manufacture},
+  39(11):1697--1715.
+
+\bibitem[Kegg, 1984]{kegg1984one}
+Kegg, R.~L. (1984).
+\newblock One-line machine and process diagnostics.
+\newblock {\em CIRP Annals-Manufacturing Technology}, 33(2):469--473.
+
+\bibitem[Kurada and Bradley, 1997]{kurada1997review}
+Kurada, S. and Bradley, C. (1997).
+\newblock A review of machine vision sensors for tool condition monitoring.
+\newblock {\em Computers in industry}, 34(1):55--72.
+
+\bibitem[Marksberry and Jawahir, 2008]{marksberry2008comprehensive}
+Marksberry, P. and Jawahir, I. (2008).
+\newblock A comprehensive tool-wear/tool-life performance model in the
+  evaluation of ndm (near dry machining) for sustainable manufacturing.
+\newblock {\em International Journal of Machine Tools and Manufacture},
+  48(7):878--886.
+
+\end{thebibliography}
