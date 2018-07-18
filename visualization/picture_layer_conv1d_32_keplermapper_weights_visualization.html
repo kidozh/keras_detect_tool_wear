@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <div id="json_graph" data-graph='{"links": [], "nodes": [{"type": "circle", "name": "cube82_cluster0", "id": "", "tooltip": "<h3>Size</h3><p>3</p><h3>Members</h3><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABfklEQVR4nAXBO0/bQAAA4Luzzy/qNyRx4zwUREBCgiJASGEIUDG0AlaksCPo1rG/pjMLEj+hUic2RtShPBuHYOJc4sfZ2Nfvgyc64ziiJkFhQCUeC0CLZ554kSInjaYClWntnuHMLPRwIgtRhICuvSDIWyDJoAg8zCrMAwWTJHmkUZkfi9Jb5LBnYMIcMTGWY5BaREqnZe6fkDSGxAUF5+MUwajCTaGQojNjXcn32HvZxQc7rQt7laqVxV2DrTlff67P7Pydq+8v5Bv7p3C2dLO95XxjYbrSGS8wp35p4ytBh5vd427nU5+7/m42f/n9RPn4xZq3vD9RrY1m3R8rS59Ze7W9q98tss7v0aEU3i4fVS37mTrW+VW9B3vctOqZMhAozIZA0gLafLIHDKnyJNcTAhqpbyVY7asQkkLD+RvCkTTnAb70mIHWxHeSUS0b1DwlKBGNqqHyIBpEUFPfBUQiOGjdu8EHEpsjg8dDsxjMj/3GRMvjoP5qhwy+/gc7Uaa6ozf1uQAAAABJRU5ErkJggg==\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABjklEQVR4nAGDAXz+AVLhFQUN1yvXCB7cIP3qE+sD/BD+Avr6/iL87ADrJPAQ7vsSBQfXCBP88w78Ee8GEOsC8xn7AOsS6QUf9Ab9BeT+GvcIBeMSAPsCAwsB/egJBgIOAgDu6QsMBPYEAgz77BDpIQPtFP/1+wEO2iTwFdYHItUq5AgR9usLCPQWBuoNAm0lTAYJ/+s/JCcobAIGyREDOVEA7SYZPNo+Jm1YLATl5kNwDf9SOh95B1PtUAsQKs8RfsW3PkL7FkMiHRpItQMlb2xrGHfyxiFmWqrnJOflS/gGHe4Dk/voAww0IiElIgVLHhdPEd0dHizbBy8dxyw65BYhwDscOk37KUco5Q52AVHuGAXW/wQS7AYK/RXfBCHvDekSBPbyEvr1FAUE/OwV3xX8BAj6CeX8BSD67BXtFfUCBQDi+QX8JPwM8fkQ+PvuAgT3DfQb//H9E/nzAvoM+vcM8yTw+xTtBe8BAA398CnrDgH6DPndFgYF8w/0+Q7v/x3y5h/8CPn4Af4C6RUHzNSnHbqenbgAAAAASUVORK5CYII=\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABjklEQVR4nAGDAXz+AU8O6vgG8RwH6xAN3x/l/xby6xQDDgjTKtcDF/359xD0Awj+8g/mBxAT+gXw8gAAJtIbCvUF7wAe7Q378wXsEuodA98DARMVAfDqGvgR7gjt+/cJExD91h/lKv7UJf7eGwP4Cg/w8Pj/ChnuF9oUBADsIOEh0xAEBO0SCgPlBxHfAa3nywDoRShPcAe7WMgT1iwJIdwXM5cJ3F7h+YiE+NgMIBYUCv0I4OAn9L8MLUxoaYwSYf/GGgvC+lJ5otC4IDDTZOa351DvfYvUS69crtkb3SYDP+z0wPU1zEbj6j0SSLr3Af78CwXAKwDxByDn6N02oVL4LrX5b9PQ9XRAKiZWAVEB/Qr9C+4M+P4DAPkEDN8AH/755SoC4AMWB90IARnwCOr2/AkM7xvxFO8P7wcV8fkD+BHpBfgH7xUO4Q4PDPnw+gD5E/3mARsB/QDlJ+7uGfACG/HpCh/98Owc6Q4HBgEIAtz5KOEC/wX2D/ADCgMN8vv6GgfZ/BX3E/7nF/vnUrW2ESSpYzcAAAAASUVORK5CYII=\">  ", "color": 16, "size": 2}, {"type": "circle", "name": "cube38_cluster0", "id": "", "tooltip": "<h3>Size</h3><p>5</p><h3>Members</h3><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABgElEQVR4nAXBvU7bQAAAYP/d9WznMDEGtxBBkzBQBgYWhMTCysiDdOzAIzB0q5gRQoIdiScIAxVLhEIi0tThJ3EM8dm+GF9sn8P3iUfLEYywCCnj6EuRASmyXUVVAw0rwtCININmmDEJ5QAlOgEACpIHIcynYCpm4bon60pGUQLTeSAMS0UK8XPJnPo6XQmIKsoYOTqtR/Gyn9r/xPpkPKsMlK/Okjrkq4Lo0zVpn7f9xqHd/QZn+xRF1vhArm48jaxfd202aZWbbksjf/+/wo4bSxt7rcZV9ZQvdBzvuLz14K1WrvmO8idj/V5CfpA8hkbELvq3XXwTtS/PJq0mp2Fv961TugyUx3j7/iEsf0fdJfNnY7MenoPTE138jdPXOkkLIPsWqb1bQ6QxNNL8Wp6PjRh71vyjJctAeDGQIrwJOTTcwgrNmVcJoDBVPzhHOpmT3VoP2x8DbFKqWDDRRIev9e2ArTsmCMq+RipONcllIxlpSYkVi/6iFE/MwYL0CUAewCpRtQrDAAAAAElFTkSuQmCC\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABjklEQVR4nAGDAXz+AZka9/HyBST18QflFxbfAwYA9Pcv9fn4EPkL9OQk9vn7E/X6B/8P7Q3z9in+BtX4DP4o4SHn+x3UIdwu5fEBK+X4GeT0BgEB8wI14/IW/A/eAx8K0i7+yyzgAwP+ERTZJd8j7wXv9gIm3u0k8gUR5BAI6A3x/inUGOcrAPjz+hnmAiSb/wmGa9Q35LU0TI3pCv/P9/rTAP7w9pHklW3U8DYN6nE/2rT86DbF2yjRDVMFG9OgsfnM8p4yjgQA2hr981zq6/Kk2EIRWBABOjhEuwYr+IZkkK/aG9gf1MWC1n3dxETcw9oOw/d+yKan9hL1v7L+QuG9arpd2ePN6m0NnaApAbL47hgMAAEC5vrqAin16BoJ9eUJ8SjdIP4E5/sbDAPxDeAJCuwV7v32FfYk1fwO9ST09hTp/fom2xnuEQDoBvMKFPEe8RH16RHqHdkj+xPtC/0L+dYcBAj+3f39DQQMCQzaJurlM/XxCfjkEf76KN0a5PcXFAXTLtf3HAjaNdQvNbPPgRlVK6kAAAAASUVORK5CYII=\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABjklEQVR4nAGDAXz+AYnsATPs9hvb/irdEA7XJ/XkLvUB6hcH6fYX9/wQ7wj2EAXf9Aom0hvv9gQv5hTu6Cvq/QgR5AgB7wQZ2B/r+Bf7+f8VBAX08QcLDfrg/hUZ7fH5IeUc8/gQ+gDeDA4OBeb68x3uJ9wMFvb56woI5AYo1P4LBAQS9ekw7BTQHRT6AjTn7j2sXuQQCbUqD7k32pzk7b6+KdeC58ERxy6s7QDt3bYq+M3wQywUxj2rMhWiItG3vwy6BckA3xn16ukkXLTINTrBt1XuAefAWyUa8/IwE6HIz66/A6mamMzM3Ie9//LQl/c+nHyym+DP3CPc8v7GBvX2bNZbuFj6S4gU8K7+AaLpEPABHu8F/wTxFtsJ/AD1/i3PAv0DDvIj/AvfFgjXIt8b+fEc5gEk9Ogg9P3tDe/8CgcA8hQCBxT4AeEM9Ab3KPP69BnbGOoOBQjy6DLeFeUGCRTlGeYc1gL7Lfv56/wI8xcH/gH++w/3DuoTBtIt8OoX9RHkIfkA5AL+Kuvj1ZzLI0LDt+QAAAAASUVORK5CYII=\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABiUlEQVR4nAXBW2/SUAAAYHpaajmlwjq5FUoYGVsWn4y+mPhkTPTZxFf/0v7GHmBbNpeMhWSJThN3e9kIiduklZsV2grtoZdzerrvY9rYYxBbcG0/K2JDdcX/lMpZgzhrDJ6AmibJyMRUxYOnGKRCNsbCs7v4SX1UWCyZMiUBEaZl4goSRRyCelL9V7acPIa8ydLZ6jLp8lImXtIVDP6IxjoJeUT9yiwNEY2y3Dg3qoLNvYbQ/eQW9drgXbPh3nQ+g3DFludHv07e4lsIvk0V7XBCwlc9YH9c+751NdyZ1enXF93V6Ug99XZN9uX7H2/ai5+ND9xvviSCk9b1/fF951Lb39cPn+PXzjnpnDVPL+6GeXRwaWxUE2dZVWlJD5tHxW2rwHyxM6YPoZP2S1pNSwtLIA9kqItKP+SrXJ803FSMTF9kA6rMcNFQFzAQosRcCR5yKS5CXspd79XGOR8VYtjnJCc9zAWy4xVHpSiCVswnA0+wZWmiDDJWmbUqCd2DKquT+l8Y8IH0CO3azt+PZv8RAAAAAElFTkSuQmCC\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABi0lEQVR4nAXB3U7TUAAA4J7T056ua6E7K2NQhEU3TTQql14QfQB5AB7EJ/CKCxLew0TEQLwwmBCMxhsDLlswZgM21m5lXbe19Gc9a4/fB/Y8mZkiK/WhTCWueCcwMShN7dyKs9oPC0ASE84idtVc90NBhZnDkR6maNktDNaueCYYY4DlxFxSe1SglRbWRga81WKop4CNyz7y4sUhmXLEUQpdAPBcWXD0Dk+SgEeiIqVdHj6H7OWXt/3OpG29+fzq1B/U3D8azumftvbXG793Yutjr9W8r9PDrhq9M+pN9OvJdnz317+stf0ZVs7Np9Xv3uufH5rPysvD860Wu/6Kx5b8Lzg52L24ONusuEsNOrZPht+CFyvssPP4+IdFaw/5y/zg6NE1qoL3UyVi5cwUI2kmwiK61ViSZDNMBprAYYcI3syw+ZCKeSg5oZqX2xV7I8i7UaSkxEy57IFbRMIIAvUKKlqUAxwYLZiZMVRLc1dM7xf7Oc1LiBzzExADxuvopjhHKUcmlBmhq/8HU2W/Vkf+nx0AAAAASUVORK5CYII=\">  ", "color": 20, "size": 2}, {"type": "circle", "name": "cube6_cluster0", "id": "", "tooltip": "<h3>Size</h3><p>3</p><h3>Members</h3><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABiUlEQVR4nAXBvW7TQAAA4POdfy5ObDd2cJOQKoKWIrG1XWBiy8Ar8AQ8AhOvwIg6VUIMgACpQxloEWVASDAhJCospMYOqWPSOzu1c0l8d+b7lKNSJ6oyc1hL8KIuRGll5qVDXLiyJ2q9FpcbZdoyRgvVMalJPT1yMwhBY1ncnGhrVwt/JlqxOxNI40LFIwjRRthTBVFSaOZVT8u0+JoK/9b9UPFy59LSmTQXct4G+oXzr5fYBJ4OTx92edbNdlH6sUNwmN+yn7/deY2Nn88CkXOjf2IFL4P9Nt/BeLi9/ejVjwHHbP/643dhdNcHZ39qv35TuqsOp4OvNzwPfb/3hkUH326bTLzo36EfRLIInFaQ7lXw+P6F/0U/evp579Py8OyAPHkw2FLeV5GfoDZi4024ktQmaO5aMmo0CwVPAcKNRK42+YzrVK6TPlFKJnwGUGVpYGwgm1qFJqdNNwLdsCNBsja3NAji/rhz7qJVVTh45Iu0tvT0816sAbaVNOGEN6V5lQM3X6fGf0PJvUU8ZsUMAAAAAElFTkSuQmCC\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABh0lEQVR4nAXBzW+TUAAAcIH3hMLroxS6AsPORXfY1MSbxizx4v4m40XvXjzu5MEli3eX7LQsHmo0ddn8WtTMWqpAXb+BRx8thefvxz02MMHd6wkbZCUtLTIAhATOMF5AV6OWj8P1n0iD82Bjog3kWJnpfFCeG8nlWkcUERHDpSH3BchEyUVyzrhQVztIkcZVflBLCEesqV0UfDKhoulb4wKhvkr1dn0p5TmNr3m2xEeLzy8C72ZnufP90b7+oV4JJ7dbLXpg3nX36maFYX3xNP90+Gpr892ieSRsRM/ff7x/j5VcDL68gfYNvQefFdvn1uafUee4pjh3gge3PPL6DMnfTmulLfst/TU9d9WmsPbwd7z98kI+UZ58dS9+kFO37Q1Rhdv1G2Gk9rkrVT6LG+5KGpdWIonOkDjMVgkViUPVbsObG0rPAUH5KvCAUcCeUvURTEf8ekojZLSLSmyNc6cLYcakOXOWXahDMKgVvlrm/qKEmSBhnAD/lXNis3Rm9rEwAlDz8X8NJ7/CI/xBeQAAAABJRU5ErkJggg==\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABiUlEQVR4nAXByU7bQAAAUK+TiWMHO5DdNCIlRFwQf9EPQHwEJ06IfwBOHHrsISonWnGtqlZqUCOhKopUobZSAzQO2Flm7DiLHduxx32PPnulUQk/3BkpiwWn8M/5lK30ivYG65lLFnoVrIRwOSerHGLAUlCsnLZmS0IEjfJq6hQY9jETKT5wAXCTwVTCDM/ZVV01VI+f26KAFGCnWZqMCqMqFvtxZQa85FAsDdcf5SwdOJM008TwVFvsFaX4ZvtLjs57po6/fT9qG93WezdxSFqz27fP0dUlyZjdyXyoN9H9/u+OOb/+/AsZlN9pT8KG5vNWKug1LDjeAOGbhz+IevjxdXr3LvFzV+MAeerVr7aG9fDloIP83L8PJ4s7TYqPLz6ef3pNX4+XKg7iiOH4gBNjlJJcm6l1w232iU26FUPE1b7KIkYmfhhRjuoPCFV0g5IbSw7frw3yuqqlGRhBSzABkP/SJWvTscvUWAaeVUIKgR58gTRmBZngjKGilbiG05OsXkNSQIvj//6aznQ+iX/HAAAAAElFTkSuQmCC\">  ", "color": 14, "size": 2}, {"type": "circle", "name": "cube32_cluster0", "id": "", "tooltip": "<h3>Size</h3><p>3</p><h3>Members</h3><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABiklEQVR4nAXBz2/SUAAA4L62a/tKf/BoB6wuENhELia6bMmyZIfpZUvU04wHT1529uDNP2B/lCcTDyZGjcmimWETZbAC5cErZa+P91r8PnAuk3UzrCYwTqxJjUEBYp42+7CIbWqqVLJu1ldDrlqacLDzr2Jda24ip6KKjdhieSMVzl+ulZdRdaCKVYZovdOIPBK5utktlMblkZeUlUvJc0ZFRpp/dMpr6opMA1IidM2/S2w5dZN7Z9/3FblvHJ9Fh91OXFwUTjLSngbt3sX8Dd3+VKsunu+2sg87w8arj+jlt6fjCyvWvzzLNs9/nLa//txCnB8N0OWs1Q2O7+Rm+LmrEYHp44PXTx5JJH8xhwDK/lUd/jp6qGvtg73r99O39fB0q1b4Dd7ZpbAyDHq2P3JjRAHOEcAKUiYB1ozZ7AFmHnak3n0WQjtJoFiarM4WoNjZ7uebPHRHrmaY4LbCeg4SY8Nf5LxMM12dGCt54CsETjZM+apBpXwtFQUM0FJjcztq8VsfqKGX/gdmg7smQckmkwAAAABJRU5ErkJggg==\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABjklEQVR4nAGDAXz+AZP0/BH56xTuBwX7DAfq8iXcFvsG8vsNGOUa6Pr9AR3hBfcIG/zlI+EPEtcdCOcAF/kM/vwH8gP4+BjmFOQj7/ENEvz68wAOBwEE+vrnGgXsFvkJ7ekKCQb3+AH6IegY9O0O9xAI+PgHCecT+Pz3CQ3zFPTsA/wX6gAEBAj1Ee/6Aq3b6BkD9SHhKQT4NRce09b32O7KVAYZeBDeFBIBDcuINg/6xL8NuDKZy6yQvkVK73j+AQa9chsR0LH9/AKPDCzRxM7d9PELy+UMudeI5tdMgMMLwLwOOR6R6QQKXgGaASzxI+YO45jzuwDR1i3wDrocnyUpg7mA2LL0MzQ5tt6oAZcF1wgX/vQU9+Mm9+gTDOMK8wEW6hvvCwn06x8D+Aj6BOAk+eEGINkq/dwi6wIA9QvzGOoQ6Aki8g/gFuoP6AAQ/Pb9Ayb98wvq/hzhA/sZ7Qr7GNkbAu73EgQJ3wIL9yEA/vkD/QgB7goEBeoX/+kKBu/9FgDoFfUJ4x3sDucKTl29DHslfoYAAAAASUVORK5CYII=\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABjElEQVR4nAXBzU/aUAAAcNq+1w9faYF2IBQGg0xC4oHtZtTb7ssuu2jief/Dbh6Mnk3mn2DiwYs7eHQHlyVi4mGZJvtC0mJpKbSFlkdfW38/6pBDURBweAE4dRzkRVsGGS/jaYbqlNMBE4GKqU2B9K81KOo0ohLBQmGREHbQmS4WlUcayXpznDDB6hz7WeApNE0cJcpRD8Xl6i86H4U5mdFLc1szCgg+MRjSah+Gzcfq2H2dThhEG637r/FHoRm/bTgb6XdxU1aRGO8tS+f1DwDz3cLP7inFeO+O2z+SaWnn/Z2ot8lBrTm83l83/e1O1DNGilVrmFd8xrGFs1FWuXeljYt+7xIfbd3AN0z529/yoiXevrgYfqasbiB8Mq/PTr/Ud/k9D/yhTuBsKuSIneQCyU54hXYRSF0ulpzY5/K8M0+IprfMNGYQ8JXwqWGViAkjXhxAzZeHuIIpnKqJDeeCwqZkNnlp8RC4EWFZdqVfHwr5/xB4fNZa+63gWdUArwJCwqxEDJkknrB8BqUxvPJ3Vej9AAAAAElFTkSuQmCC\">  ", "color": 13, "size": 2}, {"type": "circle", "name": "cube47_cluster0", "id": "", "tooltip": "<h3>Size</h3><p>4</p><h3>Members</h3><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABjklEQVR4nAGDAXz+Aafr7/r/KNgIBAr86iv5BvMN4fIKAijZG/zzAA4R1BbrBv8PC/8K9OL/EgMXzwkl7+r9G+QV5RIj4v4BEOoGDQvkHOH1/RwYyw0eBOT4GAnZKffm/QIRBv8S9doe9R758e77CxAP4BT86PkcA+EEKeod0A3+F9kZEf0H9+MV6yjbAg/SdS2zIiJQSfZha93S2PbnJB7PBumLEbvhrUDPOxvWF/D4Er7z3xckshAJ9ySdHfGn6O0rQRMd0FILEikTz3I2/SrRMA4G/ji8HUlA0f7oOJuChR9T6tHuUx+M+53cKDsqKHQY0dPm5/TdynRDwdK9YrrSOiVKBy/jaOIpHBIJAXsk/9gPAQn+C90XGfj92SDgMPUQ4w/w6QEF+QodBNQ2ygsZA+UY+hrw9OsD9jP93PUd+xbT/hkX8foZ3RzqFgj0Atv/GfYC/RLu9iD5B/gU+wHsE9oZAgkC1ijX/x3hCSPcAQUIGtUh8O/9BCLjGuwBGwT2A+Qi0g34JNke/+8bHxS7kJuFOFEAAAAASUVORK5CYII=\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABjElEQVR4nAXBXUvqYAAAYPfO9/V1uuPHtsrl0MIkiiDstqLop3TVH+gm6AcUBEGcv3Cgq+giCM6Bw4lIiiDCPk10spxO96HN6T7azvMQh6QBrLSEYUTOOR1kL7p226Hs2RqeVKMjwVUnqulkI3BJmqlSGRmBFAFr2ZiFZY4ItIwatySaxT78ooaNJOMijTGilvHDCFIpy2YbxTcOqVxvVBRZcb6BYJhtBjCh4Q5Pov4Xy4zB1kf37mBT2M6+77z8c3RSAuU2MXd6fXu9vzpwvi/FSnZwURJMfviEjtA55H56DzwjC72V27H/WzyOFNk/XqR6ZpbXj+J/TaV/9evK21irxJzRQXJvLp6eVW9irfLroxj6LIFTSVy4ry2ldjs50L6fXv6ExIkywJFxxlcwo9DdMTVtGwOYD7UsoSnUCyaCSOmTCV0YJTyZ+e47fIumpaDg4iZFhDU0ZQ71qACeQaHuoRnN5sKuzFNOPciagUd5PRpM9SZqZAh5eXfYzRMGhHIC+zoFwlCJ6n7uPy8MwHUEOuC2AAAAAElFTkSuQmCC\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABi0lEQVR4nAXBT0/TUAAA8PbV/n31tVu7Dipd4tANFrhwMHLwS3jwMxg/gV/Bu3HelIMxhBOJ8WZIvGA0EAgkoGNkFFipLbz52vXP2r35+7EbPQdDLYgVUvDNsZTQYqoHDnOnYIOGhUXv01Tz+YyU7VPGCTgNlqGSj20G9tWaK/AAZcn8Od+4HqmWNxV1F8Ud4jroH4tlGFElwUBn7KOVlGFdUAslIZTl0ZKr5fEDdqCIyQJYC1zrddR81hq8mN/d2+aG+Lw7+vSOvDw4yNSnF8ffP5PN/dWG2cKqbBvb8rfNNz/nml74seN5CdXf12UhWV7/yjSnredZn3tSOenupCr6NVugX2of0rB6r3K4cva29+O3tqWEG8PdkvY75JWJ/zRyy3iM2G6BfC0ftuMMm/Ximi76BI0rxBInvUejeuoBpOWAvazeIiCoWe4rsZgzQKpkkaBxKJhF9sAASiiKMJB8qWQnDixL3uVsNrqqAjibwMvWYCKYNyUjJQ7RMbwR5fThiWn8FW7blPsPZHq7lALU1XgAAAAASUVORK5CYII=\">  <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAADCAAAAAB+cVhhAAABh0lEQVR4nAXBuU7CYAAA4L/8tQeUFsEqt0fwIEYno4uLTk6uzj6HT6A+gpvGyUHjbhATjUriweABYoVWqi30orSlLeL3IduxP5dExLTuxVU7p9ppR7VZPv9CMHLEGDWTdScv0bJPquREp+thVD0T/sQTNZBu91NV0s55Cm2FQ+CVQWNdG7C20J9xoKnHhVwzo1CSw5iTLfx3uIt1SIrkohbD8JRHQ38Q4mGCG+MD0UBocX83gjU6+RX99NG5SyrCt38llkqXC7q2Wm4XNP9ifADqDetxji2vqXsCK6rlpRsFPmGt1OF7zvgqs+YseNtyN2oSdi+fnVwb+AF8/ipFjyuV9ZniJ/LwgjQw5zZjnIvchVDYIZZfj5qbp/NFiUJ2UMBP/xI07LdwJQt8VwF+GhDyH9t0YdwIohr5w3SCI3JwSOslaxnkJwFE1rVpY6yFQ0h0o3WfYjkvayR6EK1SQYm2sh+jBMcQEbMXtnBS65vJ5iClB1BouwYW1qbfp2p5TY+FnDbS+we36sfxivWL0QAAAABJRU5ErkJggg==\">  ", "color": 15, "size": 2}]}' style="display:none"></div>
+  <meta charset="utf-8">
+  <meta name="generator" content="KeplerMapper">
+  <title>My Data | KeplerMapper</title>
+
+  <link rel="icon" type="image/png" href="https://i.imgur.com/2eZcTZn.png" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:700,300' rel='stylesheet' type='text/css'>
+  <style> * {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%%;
+}
+
+body {
+  font-family: "Roboto Mono", "Helvetica", sans-serif;
+  font-size: 14px;
+}
+
+#display {
+  color: #95A5A6;
+  background: #212121;
+}
+
+#print {
+  color: #000;
+  background: #FFF;
+}
+
+h1 {
+  font-size: 21px;
+  font-weight: 300;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 18px;
+  padding-bottom: 20px;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#meta h3 {
+  float: left;
+  padding-right: 8px;
+}
+
+p, #tooltip h3, ol, ul, table {
+  padding-bottom: 20px;
+}
+
+ol, ul {
+  padding-left: 20px;
+}
+
+ol b {
+  display: block;
+}
+
+a {
+  color: #16a085;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2ecc71;
+}
+
+#header {
+  height: 35px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+#display #header {
+  background: #111111;
+  box-shadow: 0px 0px 4px #000
+}
+
+#print #header {
+  background: #FFF;
+}
+
+#canvas {
+  height: 100%%;
+  width: 100%%;
+  display: block;
+}
+
+#tooltip {
+  position: absolute;
+  top: 75px;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  padding: 20px;
+  overflow: auto;
+  display: none;
+}
+
+#display #tooltip {
+  background: #191919;
+}
+
+#print #tooltip {
+  background: #FFF;
+}
+
+#meta {
+  position: absolute;
+  top: 75px;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  padding: 20px;
+  overflow: auto;
+}
+
+#display #meta {
+  background: #191919;
+}
+
+#print #meta {
+  background: #FFF;
+}
+
+#meta_control, #tooltip_control {
+  position: absolute;
+  right: 20px;
+}
+
+#meta::-webkit-scrollbar, #tooltip::-webkit-scrollbar {
+  width: 1em;
+}
+
+#meta::-webkit-scrollbar-track, #tooltip::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#meta::-webkit-scrollbar-thumb, #tooltip::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+#histogram {
+  display: block;
+  height: 100px;
+  padding-top: 50px;
+  clear: both;
+}
+
+#display #histogram {
+  opacity: 0.68;
+}
+
+.bin {
+  width: 30px;
+  float: left;
+}
+
+.bin div {
+  font-size: 10px;
+  display: block;
+  width: 35px;
+  margin-top: -30px;
+  text-align: right;
+  margin-left: -3px;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+}
+
+#histogram:hover {
+  opacity: 1.;
+}
+
+#display .circle {
+  stroke-opacity: 0.18;
+  stroke-width: 7px;
+  stroke: #000;
+}
+
+#print .circle {
+  stroke-opacity: 1;
+  stroke-width: 2px;
+  stroke: #000;
+  stroke-linecap: round;
+}
+
+#print .link {
+  stroke: #000;
+}
+
+#display .link {
+  stroke: rgba(160, 160, 160, 0.5);
+}
+
+table {
+  border-collapse: collapse;
+  display: table;
+  width: 100%%;
+  margin-bottom: 20px;
+}
+
+td, th {
+  padding: 5px;
+  text-align: left;
+}
+
+#display th {
+  background: #212121
+}
+
+td {
+  border-bottom: 1px solid #111;
+}
+ </style>
+
+</head>
+
+<body id="display">
+  <div id="header">
+    <noscript><b>Requires JavaScript (d3.js) for visualizations</b></noscript>
+    <h1>My Data</h1>
+  </div>
+  <div id="canvas">
+
+  </div>
+  <div id="tooltip">
+    <div id="tooltip_control">
+      <a href="#"><small>[-]</small></a>
+    </div>
+    <h2>Cluster Meta</h2>
+    <div id="tooltip_content">
+
+    </div>
+  </div>
+  <div id="meta">
+    <div id="meta_control">
+      <a href="#"><small>[-]</small></a>
+    </div>
+    <h2>Graph Meta</h2> <h3>Nodes</h3><p>5</p><h3>Edges</h3><p>0</p><h3>Total Samples</h3><p>18</p><h3>Unique Samples</h3><p>18</p>   <h3>Distribution</h3>
+  <div id="histogram">
+    <div class="bin" style="height: 5px; background:#FF2800">
+      <div>0.0%</div>
+    </div>
+    <div class="bin" style="height: 5px; background:#FF6400">
+      <div>0.0%</div>
+    </div>
+    <div class="bin" style="height: 5px; background:#FFa000">
+      <div>0.0%</div>
+    </div>
+    <div class="bin" style="height: 5px; background:#FFdc00">
+      <div>0.0%</div>
+    </div>
+    <div class="bin" style="height: 35px; background:#b0ff00">
+      <div>16.7%</div>
+    </div>
+    <div class="bin" style="height: 105px; background:#00ff36">
+      <div>55.6%</div>
+    </div>
+    <div class="bin" style="height: 5px; background:#00e4ff">
+      <div>0.0%</div>
+    </div>
+    <div class="bin" style="height: 55px; background:#0084ff">
+      <div>27.8%</div>
+    </div>
+    <div class="bin" style="height: 5px; background:#0022ff">
+      <div>0.0%</div>
+    </div>
+    <div class="bin" style="height: 5px; background:#0300ff">
+      <div>0.0%</div>
+    </div>
+  </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+  <script>// Height and width settings
+var canvas_height = window.innerHeight - 5;
+document.getElementById("canvas").style.height = canvas_height + "px";
+var width = document.getElementById("canvas").offsetWidth;
+var height = document.getElementById("canvas").offsetHeight;
+var w = width;
+var h = height;
+
+// We draw the graph in SVG
+var svg = d3.select("#canvas").append("svg")
+          .attr("width", width)
+          .attr("height", height);
+
+var focus_node = null, highlight_node = null;
+var text_center = false;
+var outline = false;
+
+// Size for zooming
+var size = d3.scale.pow().exponent(1)
+           .domain([1,100])
+           .range([8,24]);
+
+// Show/Hide Functionality
+d3.select("#tooltip_control").on("click", function() {
+  d3.select("#tooltip").style("display", "none");
+});
+d3.select("#meta_control").on("click", function() {
+  d3.select("#meta").style("display", "none");
+});
+
+// Color settings: Ordinal Scale of ["0"-"30"] hot-to-cold
+var color = d3.scale.ordinal()
+            .domain(["0","1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                     "11", "12", "13","14","15","16","17","18","19","20",
+                     "21","22","23","24","25","26","27","28","29","30"])
+            .range(["#FF0000","#FF1400","#FF2800","#FF3c00","#FF5000","#FF6400",
+                    "#FF7800","#FF8c00","#FFa000","#FFb400","#FFc800","#FFdc00",
+                    "#FFf000","#fdff00","#b0ff00","#65ff00","#17ff00","#00ff36",
+                    "#00ff83","#00ffd0","#00e4ff","#00c4ff","#00a4ff","#00a4ff",
+                    "#0084ff","#0064ff","#0044ff","#0022ff","#0002ff","#0100ff",
+                    "#0300ff","#0500ff"]);
+// Force settings
+var force = d3.layout.force()
+            .linkDistance(5)
+            .gravity(0.2)
+            .charge(-1200)
+            .size([w,h]);
+
+// Variety of variable inits
+var highlight_color = "blue";
+var highlight_trans = 0.1;
+var default_node_color = "#ccc";
+var default_node_color = "rgba(160,160,160, 0.5)";
+var default_link_color = "rgba(160,160,160, 0.5)";
+var nominal_base_node_size = 8;
+var nominal_text_size = 15;
+var max_text_size = 24;
+var nominal_stroke = 1.0;
+var max_stroke = 4.5;
+var max_base_node_size = 36;
+var min_zoom = 0.1;
+var max_zoom = 7;
+var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom]);
+var g = svg.append("g");
+
+svg.style("cursor","move");
+
+var graph = JSON.parse(document.getElementById("json_graph").dataset.graph);
+
+force
+  .nodes(graph.nodes)
+  .links(graph.links)
+  .start();
+
+var link = g.selectAll(".link")
+            .data(graph.links)
+            .enter().append("line")
+              .attr("class", "link")
+              .style("stroke-width", function(d) { return d.w * nominal_stroke; })
+              .style("stroke-width", function(d) { return d.w * nominal_stroke; })
+              //.style("stroke", function(d) {
+              //  if (isNumber(d.score) && d.score>=0) return color(d.score);
+              //  else return default_link_color; })
+
+var node = g.selectAll(".node")
+            .data(graph.nodes)
+            .enter().append("g")
+              .attr("class", "node")
+              .call(force.drag);
+
+node.on("dblclick.zoom", function(d) { d3.event.stopPropagation();
+  var dcx = (window.innerWidth/2-d.x*zoom.scale());
+  var dcy = (window.innerHeight/2-d.y*zoom.scale());
+  zoom.translate([dcx,dcy]);
+  g.attr("transform", "translate("+ dcx + "," + dcy  + ")scale(" + zoom.scale() + ")");
+});
+
+var tocolor = "fill";
+var towhite = "stroke";
+if (outline) {
+  tocolor = "stroke";
+  towhite = "fill";
+}
+
+// Drop-shadow Filter
+var svg = d3.select("svg");
+var defs = svg.append("defs");
+var dropShadowFilter = defs.append('svg:filter')
+  .attr('id', 'drop-shadow')
+  .attr('filterUnits', "userSpaceOnUse")
+  .attr('width', '250%')
+  .attr('height', '250%');
+dropShadowFilter.append('svg:feGaussianBlur')
+  .attr('in', 'SourceGraphic')
+  .attr('stdDeviation', 12)
+  .attr('result', 'blur-out');
+dropShadowFilter.append('svg:feColorMatrix')
+  .attr('in', 'blur-out')
+  .attr('type', 'hueRotate')
+  .attr('values', 0)
+  .attr('result', 'color-out');
+dropShadowFilter.append('svg:feOffset')
+  .attr('in', 'color-out')
+  .attr('dx', 0)
+  .attr('dy', 0)
+  .attr('result', 'the-shadow');
+dropShadowFilter.append('svg:feComponentTransfer')
+  .attr('type', 'linear')
+  .attr('slope', 0.2)
+  .attr('result', 'shadow-opacity');
+dropShadowFilter.append('svg:feBlend')
+  .attr('in', 'SourceGraphic')
+  .attr('in2', 'the-shadow')
+  .attr('mode', 'normal');
+
+var circle = node.append("path")
+  .attr("d", d3.svg.symbol()
+    .size(function(d) { return d.size * 50; })
+    .type(function(d) { return d.type; }))
+  .attr("class", "circle")
+  .style(tocolor, function(d) {
+    return color(d.color);});
+//.style("filter", "url(#drop-shadow)");
+
+var text = g.selectAll(".text")
+  .data(graph.nodes)
+  .enter().append("text")
+    .attr("dy", ".35em")
+    .style("font-family", "Roboto")
+    .style("font-weight", "400")
+    .style("color", "#2C3E50")
+    .style("font-size", nominal_text_size + "px");
+
+if (text_center) {
+  text.text(function(d) { return d.id; })
+    .style("text-anchor", "middle");
+} else {
+  text.attr("dx", function(d) {return (size(d.size)||nominal_base_node_size);})
+    .text(function(d) { return '\u2002'+d.id; });
+}
+
+// Mouse events
+node.on("mouseover", function(d) {
+  set_highlight(d);
+  console.log("node hober");
+
+  d3.select("#tooltip").style("display", "block");
+  d3.select("#tooltip_content").html(d.tooltip + "<br/>");
+  }).on("mousedown", function(d) {
+    d3.event.stopPropagation();
+    focus_node = d;
+    if (highlight_node === null) set_highlight(d)
+  }).on("mouseout", function(d) {
+    console.log("mouseout");
+    exit_highlight();
+  });
+
+  d3.select(window).on("mouseup", function() {
+    if (focus_node!==null){
+      focus_node = null;
+    }
+    if (highlight_node === null) exit_highlight();
+});
+
+// Node highlighting logic
+function exit_highlight(){
+  highlight_node = null;
+  if (focus_node===null){
+    svg.style("cursor","move");
+  }
+}
+
+function set_highlight(d){
+  svg.style("cursor","pointer");
+  if (focus_node!==null) d = focus_node;
+}
+
+// Zoom logic
+zoom.on("zoom", function() {
+var stroke = nominal_stroke;
+var base_radius = nominal_base_node_size;
+if (nominal_base_node_size*zoom.scale()>max_base_node_size) {
+  base_radius = max_base_node_size/zoom.scale();}
+circle.attr("d", d3.svg.symbol()
+  .size(function(d) { return d.size * 50; })
+  .type(function(d) { return d.type; }))
+if (!text_center) text.attr("dx", function(d) {
+  return (size(d.size)*base_radius/nominal_base_node_size||base_radius); });
+
+var text_size = nominal_text_size;
+if (nominal_text_size*zoom.scale()>max_text_size) {
+  text_size = max_text_size/zoom.scale(); }
+text.style("font-size",text_size + "px");
+
+g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+});
+
+svg.call(zoom);
+resize();
+d3.select(window).on("resize", resize);
+
+// Animation per tick
+force.on("tick", function() {
+node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+text.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+link.attr("x1", function(d) { return d.source.x; })
+  .attr("y1", function(d) { return d.source.y; })
+  .attr("x2", function(d) { return d.target.x; })
+  .attr("y2", function(d) { return d.target.y; });
+node.attr("cx", function(d) { return d.x; })
+  .attr("cy", function(d) { return d.y; });
+});
+
+// Resizing window and redraws
+function resize() {
+  var width = window.innerWidth, height = window.innerHeight;
+  var width = document.getElementById("canvas").offsetWidth;
+  var height = document.getElementById("canvas").offsetHeight;
+  svg.attr("width", width).attr("height", height);
+
+  force.size([force.size()[0]+(width-w)/zoom.scale(),
+              force.size()[1]+(height-h)/zoom.scale()]).resume();
+    w = width;
+    h = height;
+}
+
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+// Key press events
+window.addEventListener("keydown", function (event) {
+if (event.defaultPrevented) {
+  return; // Do nothing if the event was already processed
+}
+switch (event.key) {
+  case "s":
+    // Do something for "s" key press.
+    node.style("filter", "url(#drop-shadow)");
+    break;
+  case "c":
+    // Do something for "s" key press.
+    node.style("filter", null);
+    break;
+  case "p":
+    // Do something for "p" key press.
+    d3.select("body").attr('id', null).attr('id', "print")
+    break;
+  case "d":
+    // Do something for "d" key press.
+    d3.select("body").attr('id', null).attr('id', "display")
+    break;
+  case "z":
+    force.gravity(0.0)
+         .charge(0.0);
+    resize();
+    break
+  case "m":
+    force.gravity(0.07)
+         .charge(-1);
+    resize();
+    break
+  case "e":
+    force.gravity(0.4)
+         .charge(-600);
+
+    resize();
+    break
+  default:
+    return; // Quit when this doesn't handle the key event.
+}
+// Cancel the default action to avoid it being handled twice
+event.preventDefault();
+}, true);
+</script>
+</body>
+
+</html>
