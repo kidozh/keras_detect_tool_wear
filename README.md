@@ -11,6 +11,8 @@ This program are under development.
 # recent achivement
 By using wavelet transformation, loss (MSE) has been down to 9.0.
 
+According to [PHM Error method](https://www.phmsociety.org/competition/phm/10/scoring), our CNN model's error is 393, way more better than [the best score(5500)](https://www.phmsociety.org/competition/phm/10/leaderboard) at 2010 leaderboard.
+
 # visualization
 
 Topology Data Analysis is implemented for visualizing model's weights, t-SNE method for hierarchy feature.
