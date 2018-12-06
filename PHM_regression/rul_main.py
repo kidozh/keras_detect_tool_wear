@@ -39,8 +39,8 @@ x = x[index]
 
 lr = 0.01
 
-#for i in [20,16,12,8]:
-for i in [15,5,25,35]:
+for i in [20,16,12,8]:
+# for i in [15,5,25,35]:
     DEPTH = i
 
     log_dir = 'RUL_logs_alt_long/'
@@ -51,7 +51,7 @@ for i in [15,5,25,35]:
 
     model_name = '%s.kerasmodel' % (train_name)
 
-    predict = False
+    predict = True
 
     if not predict:
         tb_cb = TensorBoard(log_dir=log_dir + train_name,write_grads=True)
@@ -81,7 +81,7 @@ for i in [15,5,25,35]:
 
         model = load_model(model_name)
         y_pred = model.predict(x)
-        print(model.evaluate(x,y))
+        # print(model.evaluate(x,y))
         from sklearn.metrics import r2_score
         #np.save(PRED_PATH, y_pred)
         # y_pred.save(PRED_PATH)

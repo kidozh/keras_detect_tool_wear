@@ -1,6 +1,6 @@
 import numpy as np
 from mogutda import SimplicialComplex
-from visualization.data import get_model
+from visualization.data import get_model,KERAS_MODEL_NAME
 import matplotlib
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -17,8 +17,62 @@ from scipy.misc import imsave, toimage
 import io
 import sys
 import base64
+
 from PIL import Image
 import PIL
+import random
+import numpy.random
+
+TOPO_DIR = "RUL_PHM_vis/"
+
+pl_jet=[[0.0, 'rgb(0, 0, 127)'],
+ [0.03, 'rgb(0, 0, 163)'],
+ [0.07, 'rgb(0, 0, 204)'],
+ [0.1, 'rgb(0, 0, 241)'],
+ [0.13, 'rgb(0, 8, 255)'],
+ [0.17, 'rgb(0, 40, 255)'],
+ [0.2, 'rgb(0, 76, 255)'],
+ [0.23, 'rgb(0, 108, 255)'],
+ [0.27, 'rgb(0, 144, 255)'],
+ [0.3, 'rgb(0, 176, 255)'],
+ [0.33, 'rgb(0, 212, 255)'],
+ [0.37, 'rgb(12, 244, 234)'],
+ [0.4, 'rgb(41, 255, 205)'],
+ [0.43, 'rgb(66, 255, 179)'],
+ [0.47, 'rgb(95, 255, 150)'],
+ [0.5, 'rgb(124, 255, 121)'],
+ [0.53, 'rgb(150, 255, 95)'],
+ [0.57, 'rgb(179, 255, 66)'],
+ [0.6, 'rgb(205, 255, 41)'],
+ [0.63, 'rgb(234, 255, 12)'],
+ [0.67, 'rgb(255, 229, 0)'],
+ [0.7, 'rgb(255, 196, 0)'],
+ [0.73, 'rgb(255, 166, 0)'],
+ [0.77, 'rgb(255, 133, 0)'],
+ [0.8, 'rgb(255, 103, 0)'],
+ [0.83, 'rgb(255, 70, 0)'],
+ [0.87, 'rgb(255, 40, 0)'],
+ [0.9, 'rgb(241, 7, 0)'],
+ [0.93, 'rgb(204, 0, 0)'],
+ [0.97, 'rgb(163, 0, 0)'],
+ [1.0, 'rgb(127, 0, 0)']]
+
+
+pl_brewer=[[0.0, '#a50026'],
+           [0.1, '#d73027'],
+           [0.2, '#f46d43'],
+           [0.3, '#fdae61'],
+           [0.4, '#fee08b'],
+           [0.5, '#ffffbf'],
+           [0.6, '#d9ef8b'],
+           [0.7, '#a6d96a'],
+           [0.8, '#66bd63'],
+           [0.9, '#1a9850'],
+           [1.0, '#006837']]
+
+SEED_NUM = 123
+random.seed(SEED_NUM)
+numpy.random.seed(SEED_NUM)
 
 mkdir_p(tests.params.PLOT_PATH)
 
@@ -48,7 +102,12 @@ if __name__ == "__main__":
     # weight -> 0, bias -> 1
     print(model.summary())
 
-    for i in range(43):
+
+    mkdir_p(TOPO_DIR)
+
+    for i in range(47):
+        if i < 0:
+            continue
         layer = "conv1d_%s"%(i+1)
         print(layer,":",model.get_layer(layer).get_weights()[0].shape)
         weight = model.get_layer(layer).get_weights()[0]
@@ -84,29 +143,47 @@ if __name__ == "__main__":
         fig = plt.figure()
 
         hdb_unweighted = HDBSCAN(min_cluster_size=3, gen_min_span_tree=True, allow_single_cluster=True)
-        hdb_unweighted.fit(projected_data)
+        clusterer = hdb_unweighted.fit(projected_data)
 
+        hdb_unweighted.single_linkage_tree_.plot()
+        fig.savefig(TOPO_DIR+"single_linkage_tree_%s_%s.pdf"%(KERAS_MODEL_NAME.split(".")[0],layer))
+        fig = plt.figure()
+        import seaborn as sns
+        color_palette = sns.color_palette('deep', 8)
+        try:
+            cluster_colors = [color_palette[x] if x >= 0
+                          else (0.5, 0.5, 0.5)
+                          for x in clusterer.labels_]
+            cluster_member_colors = [sns.desaturate(x, p) for x, p in
+                                 zip(cluster_colors, clusterer.probabilities_)]
+            plt.scatter(*projected_data.T,
+                    s=50,
+                    linewidth=0,
+                    c=cluster_member_colors,
+                    alpha=0.25
+                    )
+            fig.savefig(TOPO_DIR+"DATA_DIST%s_%s.pdf"%(KERAS_MODEL_NAME.split(".")[0],layer))
+        except Exception as e:
+            print(e)
+        fig = None
+        fig = plt.figure()
         cd = hdb_unweighted.condensed_tree_.plot()
 
-        fig.suptitle('Unweighted HDBSCAN condensed tree plot')
-        fig.savefig("HDBSCAN_%s"%(layer))
+        # fig.suptitle('Unweighted HDBSCAN condensed tree plot')
+        fig.savefig(TOPO_DIR+"HDBSCAN_%s_%s.pdf"%(KERAS_MODEL_NAME.split(".")[0],layer))
         # plt.show()
 
 
         # Create the graph (we cluster on the projected data and suffer projection loss)
         graph = mapper.map(projected_data,
-                           clusterer=sklearn.cluster.DBSCAN(eps=0.1, min_samples=3),
+                           clusterer=sklearn.cluster.DBSCAN(eps=0.8, min_samples=3),
                            # clusterer=sklearn.cluster.DBSCAN(eps=5),
                            #clusterer=HDBSCAN(min_cluster_size=5, gen_min_span_tree=True, allow_single_cluster=True),
                            # coverer=km.Cover(35, 0.9)
+                           coverer=km.Cover(nr_cubes=10, overlap_perc=0.2),
                            )
         print(layer,"map successfully")
         simplicial_complex = graph
-        print(simplicial_complex["nodes"])
-        print(simplicial_complex["links"])
-        for i, (node_id, member_ids) in enumerate(graph["nodes"].items()):
-            print(i,node_id,member_ids)
-        # # print(simplicial_complex["meta"])
 
 
         print(labels)
@@ -117,15 +194,28 @@ if __name__ == "__main__":
             #             custom_tooltips = labels
             #                  )
 
-            mapper.visualize(graph,path_html="picture_layer_%s_keplermapper_weights_visualization.html" % (layer),
-                             custom_tooltips=tooltip_s
-                             )
+            mapper.visualize(graph,path_html=TOPO_DIR + "picture_overlap_layer_%s_%s.html" % (KERAS_MODEL_NAME,layer),custom_tooltips=tooltip_s)
+            # from visualization import plotlyviz as pl
+            # from plotly.offline import download_plotlyjs, init_notebook_mode, iplot
+            # # PLot the graph with Kamada Kawai layout
+            # plotly_graph_data = pl.plotly_graph(graph,
+            #                                     # tooltips=labels,
+            #                                     graph_layout='kk',
+            #                                     colorscale=pl_jet,
+            #                                     factor_size=3,
+            #                                     edge_linewidth=0.5)  # here colorscale could be 'jet'; in this case the above definition
+            # # of pl_jet is not necessary anymore
+            # layout = pl.plot_layout(title='Mapper graph of digits dataset', width=800, height=800,
+            #                         # annotation_text=meta,
+            #                         bgcolor='rgba(0,0,0, 0.95)')
+            #
+            # fig = dict(data=plotly_graph_data, layout=layout)
+            # iplot(fig)
         except Exception as e:
+            # raise e
             print(e)
-            # raise (e)
-            print(projected_data.shape)
 
-            # input("Error Happened, Press Enter to Continue")
+    print(model.summary())
 
 
 
