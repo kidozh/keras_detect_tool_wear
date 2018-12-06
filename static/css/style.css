@@ -1,0 +1,96 @@
+/* font loaded from Google Font  */
+@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body{
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Muli', "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-weight: 400;
+}
+
+p{
+    font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+.navbar-transparent{
+    background: transparent;
+}
+
+.navbar-transparent a{
+    color: #bdc3c7;
+}
+
+.project-bg{
+    background: url("../images/folk-pattern-black.png");
+    padding: 8rem 2rem 5rem 2rem;
+}
+
+.project-bg *{
+    font-family: "Muli","Microsoft Yahei UI",sans-serif;
+    color: #ecf0f1;
+}
+
+.project-bg .author{
+    margin: 1rem 0 1rem 0;
+}
+
+.project-section{
+    padding: 2rem 0 2rem 0;
+}
+
+.project-section h1,
+.project-section h2,
+.project-section h3,
+.project-section h4,
+.project-section h5,
+.project-section h6{
+    color: #2c3e50;
+}
+
+.project-section p{
+    color: #34495e;
+}
+
+#project-result-chart{
+    height: 25rem;
+}
+
+.model-detail{
+    background: #ecf0f1;
+}
+
+#model-peformance-chart {
+    height: 20rem;
+}
+
+.contact-us-section{
+    background: #7c064d;
+}
+
+.contact-us-section h3{
+    color: #ffeed0;
+}
+
+.contact-us-section a{
+    color: #f79f24;
+}
+
+.conclusion{
+    background: #f5f5f5;
+}
+
+.footer{
+    padding: 2rem 1rem 2rem 1rem;
+    background: #f7f7f7;
+}
+
+.footer *{
+    color: #6c757d;
+}
+
+.footer a{
+    color : #495057;
+}

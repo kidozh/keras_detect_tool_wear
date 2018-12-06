@@ -1,1 +1,186 @@
-My Page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>High-accurate Tool Wear Prediction With Convolutional Neural Network</title>
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+
+
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">kidozh</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Multiple machining Tool wear</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Visualization</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Tool wear forecast</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">中文</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <!-- projects jumbotron -->
+    <div class="row project-bg">
+        <div class="col-md-8 offset-md-1">
+            <h1>High-accurate Tool Wear Prediction With Convolutional Neural Network</h1>
+            <h3 class="author">kidozh</h3>
+            <p class="lead">Key Lab of Contemporary Design and Integrated Manufacturing Technology, Northwestern Polytechnical University</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div class="row project-section">
+                <!-- main content-->
+                <div class="col-md-5 offset-md-1" id="app">
+                    <h2>We develop a model which can monitor single-machining tool wear, also known as TCM, from 7-dimensional signals better than any other traditional method.</h2>
+                    <p>Key to exceeding expert and traditional performance is a deep convolutional network which can map a sequence of signal to tool wear label along with
+                        PHM 2010 dataset similar with previous dataset of its kind.</p>
+
+                    <p><a class="btn btn-outline-primary" href="#">READ OUR PAPER (Simplified Chinese)</a>
+                        <a class="btn btn-outline-primary" href="https://github.com/kidozh/keras_detect_tool_wear">
+                            <span class="fa fa-github"></span> SOURCE CODE
+                        </a>
+                    </p>
+
+                </div>
+                <div class="col-md-5">
+                    <!-- put chart on it -->
+                    <div id="project-result-chart">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row project-section model-detail">
+                <div class="col-md-4 offset-md-2">
+                    <img class="img-fluid" src="./static/images/whole_structure.svg" alt="Whole structure of ResNet">
+                </div>
+                <div class="col-md-5">
+                    <h2>We train a 32-layer convolutional neural network (CNN) to predict tool wear in 7-dimensional sensor signals</h2>
+                    <p>The network takes as input a time-series of secondary-sampled sensor signal, and outputs
+                        a sequence of responding tool wear. The original signal is sampled at 50KHz.  We arrive at an architecture which
+                        is 32 layers of convolution followed by a fully connected layer.
+                    </p>
+                    <p>To make the optimization of such a deep model tractable, we use residual connections and batch-normalization.
+                        The depth increases both the non-linearity of the computation as well as the size of the context window for
+                        each regression task.</p>
+                    <p>Each channel of signal is corresponding to:<br />
+                        1: Force (N) in X dimension<br />
+                        2: Force (N) in Y dimension<br />
+                        3: Force (N) in Z dimension<br />
+                        4: Vibration (g) in X dimension<br />
+                        5: Vibration (g) in Y dimension<br />
+                        6: Vibration (g) in Z dimension<br />
+                        7: AE-RMS (V) </p>
+                </div>
+            </div>
+            <div class="row project-section">
+                <div class="col-md-10 offset-md-1">
+                    <h2>The data is collected a dataset of 3 tools under the same machining circumstance</h2>
+                    <p>The PHM data is sampled at a frequency of 50000Hz and have 8GB size. In this machining condition,
+                        the spindle speed of the cutter was 10400 RPM; feed rate was 1555 mm/min; Y depth of cut (radial)
+                        was 0.125 mm; Z depth of cut (axial) was 0.2 mm.
+                    </p>
+                    <p>You may find more details about this experiment at <a href="https://www.phmsociety.org/competition/phm/10">HERE</a></p>
+                </div>
+            </div>
+            <div class="row project-section">
+                <div class="col-md-6">
+                    <div id="model-peformance-chart"></div>
+                </div>
+                <div class="col-md-5">
+                    <h2>The model outperforms all of competitors in PHM 2010 Contest</h2>
+                    <p>Although we have no data about test data, according to the score on known dataset,
+                        loss of this model is ~1000 times less than the 1st prize winner, which shows a great accuracy of
+                    CNN.
+                    </p>
+
+                </div>
+            </div>
+            <div class="row project-section conclusion">
+                <div class="col-md-8 offset-md-1">
+                    <h3>Given that more than 900 run are recorded in PHM data, high-accuracy prediction by CNN
+                    can monitor tool wear and decrease the need of prior experience. Furthermore, we hope that
+                        this technology dealt with sensor signal enables more widespread use of deep learning in places
+                        where access to experts is difficult.
+                    </h3>
+                </div>
+            </div>
+            <div class="row project-section contact-us-section">
+                <div class="col-md-8 offset-md-1">
+                    <h3>If you have questions about our work, contact us at :kidozh@gmail.com</h3>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row footer">
+        <div class="col-md-12">
+            <h3 class="text-center">This project is licensed <a href="https://github.com/kidozh/keras_detect_tool_wear/blob/master/LICENSE">MIT</a></h3>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js" integrity="sha256-3kjowa0CUPPK4W+yaGpNP1exjs8gbX2SSsToEMd06K8=" crossorigin="anonymous"></script>
+<!-- echarts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.js" integrity="sha256-5oGDDQdB95LVt6XQcCR1rIRWUIoDC9vtM/TmZFmmvHc=" crossorigin="anonymous"></script>
+<script src="./static/js/plot_result.js"></script>
+
+<script>
+    var vm  = new Vue({
+        el: '#app',
+        data: {
+            teeth_number : 1,
+            knife_number :1
+        },
+
+    });
+    setInterval(function () {
+        vm.knife_number = getRandomIntInclusive(1,3);
+        vm.teeth_number = getRandomIntInclusive(1,3);
+
+        drawChart("en",vm.teeth_number,vm.knife_number)
+    },1000);
+
+    //drawChart("en",1,2);
+</script>
+<script>
+
+
+</script>
+</body>
+</html>
