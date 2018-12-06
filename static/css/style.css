@@ -33,6 +33,12 @@ p{
     color: #ecf0f1;
 }
 
+.project-bg a:hover,
+.project-bg a:focus{
+    color: #bdc3c7;
+    transition: .35s all;
+}
+
 .project-bg .author{
     margin: 1rem 0 1rem 0;
 }
