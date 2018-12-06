@@ -32,7 +32,7 @@ data = wavelet_dataset()
 a2,d2,d1 = data.gen_x_dat()
 # y = data.gen_y_dat()
 
-y = data.get_rul_dat()
+# y = data.get_rul_dat()
 
 import random
 
@@ -80,6 +80,11 @@ for i in [20,15,10,5,35]:
     else:
 
         PRED_PATH = 'Y_PRED'
+        a = auto_stride_dataset()
+        y = a.get_all_loc_y_sample_data()
+        x = a.get_all_loc_x_sample_data()
+        data = wavelet_dataset()
+        a2, d2, d1 = data.gen_x_dat()
 
         try:
             import numpy as np
@@ -95,6 +100,13 @@ for i in [20,15,10,5,35]:
             y_pred.save(PRED_PATH)
 
         print(y_pred.shape)
+        print(y.shape)
+        json_data = {}
+        print(y_pred)
+        json_data["predicted"] = y_pred.tolist()
+        json_data["real"] = y.tolist()
+        import json
+        print(json.dumps(json_data))
 
         import matplotlib.pyplot as plt
         import matplotlib as  mpl
@@ -127,7 +139,7 @@ for i in [20,15,10,5,35]:
                 # plt.xlabel('Run')
                 plt.legend()
                 plt.savefig("%s_tool_@_%s_teeth_ZH.svg"%(i,j))
-                # plt.show()
+                plt.show()
         break
     break
 

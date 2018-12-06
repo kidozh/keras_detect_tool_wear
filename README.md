@@ -4,6 +4,8 @@ This is a program for predicting RUL estimation for a high-speed CNC milling mac
 
 # Notice
 
+This project's page is [HERE](https://kidozh.com/keras_detect_tool_wear/), you may find something interesting about our work.
+
 RUL estimation is prediction for engine by the same method, the accuracy is ideal.
 
 This program are under development.
