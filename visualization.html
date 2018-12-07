@@ -147,7 +147,7 @@
                             <small id="modelHelp" class="form-text text-muted">Result of transfer model will be the same since frozen weights</small>
                         </div>
                         <div class="form-group">
-                            <label for="InputLayer">Password</label>
+                            <label for="InputLayer">Layer you want to explore</label>
                             <select class="form-control " id="InputLayer" aria-describedby="layerHelp" v-model="selectedLayer">
                                 <option v-for="layer in selectionsLayer" :value="layer.text" :selected="$index == 0 ? true : false">{{layer.text}}</option>
                             </select>
