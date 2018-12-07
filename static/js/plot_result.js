@@ -9,6 +9,15 @@ var raw_score_data =
     {"score": [393,55000.0, 57000.0, 64000.0, 120000.0, 150000.0, 250000.0, 320000.0, 1300000.0, 3700000.0, 5200000.0, 5700000.0, 210000000.0, 2300000000.0, 16000000000.0, 18000000000.0, 19000000000.0, 33000000000.0, 110000000000.00002, 2200000000000.0, 2900000000000.0, 4099999999999.9995],
         "teamname": ["CNN","gtl-phm", "UNO-PHM", "PathFinder", "Projector", "Shirazi", "Maverick", "westlake", "DCO", "COSMI", "scr", "Fall2010NYTX", "myc", "Tardec", "hcbdy", "ITRI", "sniknam", "EchoLake", "Luckbox", "phm415", "Meliksah", "gtisyeprog"]}
 ;
+
+var short_score_data = {
+    "score":[393,55000.0, 57000.0, 64000.0,],
+    "teamname": ["CNN","gtl-phm", "UNO-PHM", "PathFinder",]
+};
+
+// for better demonstrate
+raw_score_data = short_score_data;
+
 var scoreChart = echarts.init(document.getElementById("model-peformance-chart"));
 
 
@@ -32,7 +41,7 @@ function drawChart(lang,knife_number,teeth_number) {
     }
     else {
         pred_label = "predicted";
-        real_label = "real"
+        real_label = "real";
         run_text = "Run";
         chart_title = "Tool wear of No.# "+knife_number+"'s "+teeth_number+" teeth";
         tool_wear_text = "Tool wear";
@@ -114,7 +123,7 @@ function drawScoreChart(){
             data: ["log loss"]
         },
         xAxis: {
-            type: 'log',
+            type: 'value',
             data: raw_score_data["score"],
             name: 'PHM custom loss'
 

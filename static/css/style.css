@@ -43,6 +43,35 @@ p{
     margin: 1rem 0 1rem 0;
 }
 
+.navbar-vis-gradient{
+    background: #833ab4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.visualization-proj-bg {
+    background: #833ab4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 8rem 2rem 5rem 2rem;
+}
+
+.visualization-proj-bg *{
+    font-family: "Muli","Microsoft Yahei UI",sans-serif;
+    color: #ecf0f1;
+}
+
+.visualization-proj-bg a:hover,
+.visualization-proj-bg a:focus{
+    color: #bdc3c7;
+    transition: .35s all;
+}
+
+.visualization-proj-bg .author{
+    margin: 1rem 0 1rem 0;
+}
+
+
 .project-section{
     padding: 2rem 0 2rem 0;
 }
@@ -99,4 +128,26 @@ p{
 
 .footer a{
     color : #495057;
+}
+
+.demo-section {
+    background: #485563;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.demo-section h1,
+.demo-section h2,
+.demo-section h3,
+.demo-section h4,
+.demo-section h5,
+.demo-section h6,
+.demo-section label,
+.demo-section p{
+    color: #ecf0f1;
+}
+
+.embed-result-panel{
+    height:40rem;
 }

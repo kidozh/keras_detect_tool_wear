@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Visualization Investigations On Convolutional Neural Network</title>
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+
+
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-vis-gradient">
+    <a class="navbar-brand" href="#">kidozh</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="./">Single machining tool wear</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Multiple machining Tool wear</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="./visualization.html">Visualization<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Tool wear forecast</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+                <a class="nav-link" href="#">简中</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <!-- projects jumbotron -->
+    <div class="row visualization-proj-bg">
+        <div class="col-md-8 offset-md-1">
+            <h1>Visualization Investigations on Convolutional Neural Network</h1>
+            <h3 class="author">kidozh</h3>
+            <p class="lead"><a href="http://jidian.nwpu.edu.cn/info/1229/5124.htm">Key Lab of Contemporary Design and Integrated Manufacturing Technology</a>, <a href="http://en.nwpu.edu.cn/">Northwestern Polytechnical University</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div class="row project-section">
+                <!-- main content-->
+                <div class="col-md-5 offset-md-1" id="app">
+                    <h2>We develop an approach to visualize how CNN works during predicting result from non-structural data like signal</h2>
+                    <p>Key to quantify deep learning strategy from complicated data is dimensionality reduction and topology analysis.
+                        To demonstrate working details of CNN model, single-machining and transfer learning model is set as an target for visualization.
+                    </p>
+
+                    <p>
+                        <a class="btn btn-outline-primary" href="#">READ OUR PAPER (Simplified Chinese)</a>
+                        <a class="btn btn-outline-primary" href="https://github.com/kidozh/keras_detect_tool_wear">
+                            <span class="fa fa-github"></span> SOURCE CODE
+                        </a>
+                        <a class="btn btn-outline-primary" href="#">MORE EXAMPLE</a>
+                    </p>
+
+                </div>
+                <div class="col-md-4">
+                    <!-- put example on it -->
+                    <img class="img-fluid" src="./static/images/topo_simple_result.svg" alt="Result of Visualization">
+                </div>
+            </div>
+            <div class="row project-section model-detail">
+                <div class="col-md-4 offset-md-2">
+                    <img class="img-fluid" src="./static/images/Kernel_Machine.svg" alt="Whole structure of ResNet">
+                </div>
+                <div class="col-md-5">
+                    <h2>T-SNE dimensionality reduction</h2>
+                    <p>First of all, because of deep learning model's design, dimension of both tensor and its corresponding
+                       kernel weight is quite high. To reduce computation cost and keep data structure, a proper method is vital
+                        for topology analysis.
+                    </p>
+                    <p>The redundancy of deep learning kernel always lead to tons of the same features. After dimensionality reduction,
+                    those feature kernel which shares similar weights will be recognized as one feature kernel.
+                    </p>
+                </div>
+            </div>
+            <div class="row project-section">
+                <div class="col-md-10 offset-md-1">
+                    <h2>A connected graph mapping features</h2>
+                    <p>Because the redundancy of model design, there will be some kernels sharing the same feature. In order to correctly show
+                        this relationship, a DBSCAN and its extension method have been used to demonstrate the bond in the similar features and
+                        different features distribution in tensor space.
+                    </p>
+                    <p>By changing bond threshold, different features' distribution and their family can be clarified. In uniting and separating
+                    features, key point of each features is determined. To show this process, single link tree and its condensed type is drawn to
+                        illustrate features' relationship.
+                    </p>
+                </div>
+                <div class="col-md-5 offset-md-1">
+                    <p class="text-center"><img class="img-fluid" src="./static/images/single_linkage_tree_CNN_1_layer.svg"><br>Single linkage tree of the 1st layer of CNN model</p>
+                </div>
+                <div class="col-md-5">
+                    <p class="text-center"><img class="img-fluid" src="./static/images/condensed_tree_CNN_1_layer.svg"><br>Condensed tree of the 1st layer of CNN model</p>
+                </div>
+            </div>
+
+            <div class="row project-section model-detail">
+                <div class="col-md-6">
+                    <p class="text-center"><img class="img-fluid" src="./static/images/dbscan_intro_dashed_circle.svg"> </p>
+                </div>
+                <div class="col-md-5">
+                    <h2>Topology analysis of CNN model</h2>
+                    <p>Key point of feature is core of DBSCAN approach. In this method, identifying key features and its family is top
+                        priority. By simplifying connected graph which is generated by DBSCAN with core and other non-clustering point,
+                        the picture is able to demonstrate the actual relationship between every feature in macroscopic view.
+                    </p>
+                    <p>Using line to connect core points sharing one or more point can show the kinship between two core points. After that,
+                        a graph made by core points and their connected line is given. By connected line, we could infer that there is a similarity
+                        between two core points. By distance between points, it is vivid to show the difference in tensor space. In the graph, the
+                        features relationship are represented by core points and their bonding with another.
+                    </p>
+                    <p>There are some live topology analysis(TA) you could try on this browser. Time to see actual topology analysis of our monitoring model!</p>
+
+                </div>
+            </div>
+            <div class="row project-section demo-section" id="demo-section">
+                <div class="col-md-12">
+                    <h4 class="text-center">physical-wide screen recommended.</h4>
+
+                </div>
+                <div class="col-md-2">
+                    <h5 class="text-center">Options</h5>
+                    <form class="form">
+                        <div class="form-group">
+                            <label for="InputModel">Model you want to see</label>
+                            <select class="form-control" id="InputModel" aria-describedby="modelHelp" v-model="selected">
+                                <option v-for="model in models" :value="model.text">{{model.text}}</option>
+                            </select>
+                            <small id="modelHelp" class="form-text text-muted">Result of transfer model will be the same since frozen weights</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputLayer">Password</label>
+                            <select class="form-control " id="InputLayer" aria-describedby="layerHelp" v-model="selectedLayer">
+                                <option v-for="layer in selectionsLayer" :value="layer.text" :selected="$index == 0 ? true : false">{{layer.text}}</option>
+                            </select>
+                            <small id="layerHelp" class="form-text text-muted">Not all of layer in multiple model conducted TDA since limited features.</small>
+                        </div>
+                        <p>Feel free to explore. Don’t worry, You can’t break It. We promise.</p>
+                    </form>
+
+
+                </div>
+                <div class="col-md-10">
+                    <iframe class="embed-responsive embed-result-panel embed-responsive-16by9" :src="iframe_src_computed"></iframe>
+                </div>
+                <div class="col-md-10 offset-md-1" style="padding-top: 2rem">
+                    <h4>How to use?</h4>
+                    <p>To make your mouse hover at any point(means core point in DBSCAN principle), the left panel will tell which and how much points make it up.
+                        The weights matrix is dyed with gray scaled color. The whiter, the greater corresponding number of matrix is. From the pictures, it's easy to
+                        easy which part CNN focus in its receptive field.
+                    </p>
+                    <p>The topology graph always contains ring or cluster architecture, which demonstrates the redundant design in kernel.</p>
+
+                </div>
+
+            </div>
+
+            <div class="row project-section conclusion">
+                <div class="col-md-8 offset-md-1">
+                    <h3>Given that one single machining model and transfer model, topology analysis by DBSCAN
+                    can demonstrate what CNN extract from signal and increase the interpretable of CNN. Furthermore, we hope that
+                        this technology dealt with CNN weights matrix enables more widespread use of deep learning in places
+                        where interpretable is extremely need for easy migrating or other use.
+                    </h3>
+                </div>
+            </div>
+
+            <div class="row project-section contact-us-section">
+                <div class="col-md-8 offset-md-1">
+                    <h3>If you have questions about our work, contact us at: kidozh@gmail.com</h3>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row footer">
+        <div class="col-md-12">
+            <h3 class="text-center">This project is licensed <a href="https://github.com/kidozh/keras_detect_tool_wear/blob/master/LICENSE">MIT</a></h3>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js" integrity="sha256-3kjowa0CUPPK4W+yaGpNP1exjs8gbX2SSsToEMd06K8=" crossorigin="anonymous"></script>
+<!-- echarts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.js" integrity="sha256-5oGDDQdB95LVt6XQcCR1rIRWUIoDC9vtM/TmZFmmvHc=" crossorigin="anonymous"></script>
+<!--<script src="./static/js/plot_result.js"></script>-->
+
+<script>
+    function getLayerTo(Number) {
+        var layer = [];
+        for(let i=0;i<Number;i++){
+            layer.push({"text":i+1})
+        }
+        return layer;
+    }
+    function getMultipleLayer() {
+        var layer = [];
+        for(let i=0;i<12; i++){
+            if(i===1){
+                continue;
+            }
+            else {
+                layer.push({"text":i+1})
+            }
+        }
+        return layer;
+    }
+
+    var vm = new Vue({
+        el:"#demo-section",
+        data:{
+            selected:"single machining model",
+            selectedLayer:1,
+            models:[{
+                text:"single machining model",
+                layer:getLayerTo(43)
+            }, {
+                text:"multiple machining model before transfer",
+                layer: getMultipleLayer()
+            },{
+                text:"multiple machining model after transfer",
+                layer: getMultipleLayer()
+            }]
+        },
+        computed:{
+            selectionsLayer:{
+                get:function () {
+                    var that = this;
+                    return this.models.filter(function (item) {
+                        return item.text == that.selected;
+                    })[0].layer;
+                }
+            },
+            iframe_src:function () {
+                if(this.selected === "single machining model"){
+                    return "picture_layer_residual_logs_adam_adjust_kernel_depth_20_shuffle_manually_conv1d_"+ this.selectedLayer +"_.html";
+                }
+                else if(this.selected === "multiple machining model before transfer"){
+                    return "picture_layer_classic_modl_regression_depth_18_0.1_conv_swish_conv1d_"+ (parseInt(this.selectedLayer)+132).toString() +"_.html"
+                }
+                else if(this.selected === "multiple machining model after transfer" ){
+                    return "picture_layer_TRANS_classic_modl_regression_depth_18_0.1_conv_swish_conv1d_"+ (parseInt(this.selectedLayer)+132).toString() +"_.html"
+                }
+            },
+            iframe_src_computed:function () {
+                return "./static/res_html/"+this.iframe_src;
+            }
+
+        },
+        methods:{
+
+        }
+    })
+    //drawChart("en",1,2);
+</script>
+<script>
+
+
+</script>
+</body>
+</html>
