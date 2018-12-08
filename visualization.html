@@ -133,7 +133,7 @@
             </div>
             <div class="row project-section demo-section" id="demo-section">
                 <div class="col-md-12">
-                    <h4 class="text-center">physical-wide screen recommended.</h4>
+                    <h4 class="text-center">{{currentLayerText}}</h4>
 
                 </div>
                 <div class="col-md-2">
@@ -153,6 +153,7 @@
                             </select>
                             <small id="layerHelp" class="form-text text-muted">Not all of layer in multiple model conducted TDA since limited features.</small>
                         </div>
+                        <p>Although mobile is supported, it's recommended to use PC or tablet to watch it for better performance.</p>
                         <p>Feel free to explore. Don’t worry, You can't break It. We promise.</p>
                     </form>
 
@@ -239,6 +240,7 @@
         data:{
             selected:"single machining model",
             selectedLayer:1,
+
             models:[{
                 text:"single machining model",
                 layer:getLayerTo(43)
@@ -258,6 +260,9 @@
                         return item.text == that.selected;
                     })[0].layer;
                 }
+            },
+            currentLayerText:function () {
+                return "Layer #"+this.selectedLayer+" of "+this.selected;
             },
             iframe_src:function () {
                 if(this.selected === "single machining model"){
