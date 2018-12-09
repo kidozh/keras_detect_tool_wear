@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a74e191e-f673-4e4c-87d3-2f6bc7b22269" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization.html" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.html" afterDir="false" />
-    </list>
+    <list default="true" id="a74e191e-f673-4e4c-87d3-2f6bc7b22269" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -46,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/visualization.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="263" column="42" lean-forward="true" selection-start-line="263" selection-start-column="42" selection-end-line="263" selection-end-column="42" />
+            <state relative-caret-position="1758">
+              <caret line="270" column="31" selection-start-line="270" selection-start-column="31" selection-end-line="270" selection-end-column="31" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#div#4;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -166,7 +163,7 @@
       <updated>1544084204544</updated>
       <workItem from="1544084208789" duration="32404000" />
       <workItem from="1544182597988" duration="820000" />
-      <workItem from="1544239134549" duration="799000" />
+      <workItem from="1544239134549" duration="2096000" />
     </task>
     <task id="LOCAL-00001" summary="commit english version page">
       <created>1544101936198</created>
@@ -224,15 +221,21 @@
       <option name="project" value="LOCAL" />
       <updated>1544182641198</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="optimizing visual performance">
+      <created>1544246723477</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1544246723477</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34023000" />
+    <option name="totallyTimeSpent" value="35320000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1657" y="-6" width="1543" height="906" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18613862" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -266,7 +269,8 @@
     <MESSAGE value="change password -&gt; layer" />
     <MESSAGE value="update docs license" />
     <MESSAGE value="add links on navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="add links on navbar" />
+    <MESSAGE value="optimizing visual performance" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimizing visual performance" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/static/images/congruent_pentagon.png">
@@ -313,8 +317,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/visualization.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="263" column="42" lean-forward="true" selection-start-line="263" selection-start-column="42" selection-end-line="263" selection-end-column="42" />
+        <state relative-caret-position="1758">
+          <caret line="270" column="31" selection-start-line="270" selection-start-column="31" selection-end-line="270" selection-end-column="31" />
           <folding>
             <element signature="n#style#0;n#div#3;n#div#4;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
