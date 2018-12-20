@@ -152,6 +152,28 @@
 
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="strictModal" tabindex="-1" role="dialog" aria-labelledby="strictModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="strictModalLabel">似乎您來自於台灣？</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>我們更新了針對台灣地區用戶的一些說明，您可以下述鏈接這裡來查看相關說明</p>
+                <p><a href="./epidemic_prevention_notice.html">相关用户的说明</a> </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <a href="./epidemic_prevention_notice.html"><button type="button" class="btn btn-primary">查看</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- load faster -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -177,6 +199,19 @@
 
         drawChart("en",vm.teeth_number,vm.knife_number)
     },1000);
+
+    function notices_user_comes_from_tw_province(){
+        let lang = navigator.language;
+        if (lang === "zh-TW" || lang === "zh-tw"){
+            console.log("Raise a modal to notice user from TW");
+            $('#strictModal').modal('show');
+        }
+    }
+
+    $(function () {
+        notices_user_comes_from_tw_province();
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 
     //drawChart("en",1,2);
 </script>

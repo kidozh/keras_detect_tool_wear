@@ -151,3 +151,36 @@ p{
 .embed-result-panel{
     height:40rem;
 }
+
+.epidemic{
+    padding: 2rem 0 2rem 0;
+}
+
+.or-divider{
+    font-family: "Avenir Next",sans-serif;
+    /* font-size: 20pt; */
+    font-size: 200%;
+    text-align: center;
+    font-weight: normal;
+    display: flex;
+    /* line-height: 1.5em; */
+    margin-top: 0.7em;
+    margin-bottom: 0.5em;
+    width: 100%;
+}
+
+.or-divider:after{
+    border-bottom: 0.1rem dashed #D3D3D3;
+    /* height: 0.8em; */
+    margin-left: 1rem;
+    content: '';
+    flex: 1;
+}
+
+.or-divider:before{
+    border-bottom: 0.1rem dashed #D3D3D3;
+    /* height: 0.8em; */
+    margin-right: 1rem;
+    content: '';
+    flex: 1;
+}
