@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a74e191e-f673-4e4c-87d3-2f6bc7b22269" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/epidemic_prevention_notice.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/epidemicRegion.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/logo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization.html" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-66">
-              <caret line="156" column="34" lean-forward="true" selection-start-line="156" selection-start-column="34" selection-end-line="156" selection-end-column="34" />
+            <state relative-caret-position="242">
+              <caret line="125" column="23" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
               <folding>
                 <element signature="e#8360#8367#1" expanded="true" />
               </folding>
@@ -36,7 +31,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/epidemic_prevention_notice.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
+            <state relative-caret-position="1298">
               <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
             </state>
           </provider>
@@ -51,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="353">
@@ -63,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visualization.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
+            <state relative-caret-position="4664">
               <caret line="212" column="71" selection-start-line="212" selection-start-column="71" selection-end-line="212" selection-end-column="71" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#div#4;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -98,9 +93,9 @@
       <list>
         <option value="$PROJECT_DIR$/static/js/plot_result.js" />
         <option value="$PROJECT_DIR$/visualization.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/epidemic_prevention_notice.html" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -133,12 +128,6 @@
               <item name="keras_detect_tool_wear" type="b2602c69:ProjectViewProjectNode" />
               <item name="keras_detect_tool_wear" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keras_detect_tool_wear" type="b2602c69:ProjectViewProjectNode" />
-              <item name="keras_detect_tool_wear" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -187,7 +176,8 @@
       <workItem from="1544182597988" duration="820000" />
       <workItem from="1544239134549" duration="2096000" />
       <workItem from="1544335099608" duration="59000" />
-      <workItem from="1545298496963" duration="465000" />
+      <workItem from="1545298496963" duration="553000" />
+      <workItem from="1545791868390" duration="805000" />
     </task>
     <task id="LOCAL-00001" summary="commit english version page">
       <created>1544101936198</created>
@@ -259,11 +249,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544335139723</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add notice for user from TW">
+      <created>1545299027901</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1545299027901</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35844000" />
+    <option name="totallyTimeSpent" value="36737000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1657" y="-6" width="1543" height="906" extended-state="6" />
@@ -281,7 +278,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.37380627" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3765348" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3287858" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -303,7 +300,8 @@
     <MESSAGE value="add links on navbar" />
     <MESSAGE value="optimizing visual performance" />
     <MESSAGE value="add rnn chapter" />
-    <option name="LAST_COMMIT_MESSAGE" value="add rnn chapter" />
+    <MESSAGE value="add notice for user from TW" />
+    <option name="LAST_COMMIT_MESSAGE" value="add notice for user from TW" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/static/images/congruent_pentagon.png">
@@ -327,13 +325,6 @@
     <entry file="file://$PROJECT_DIR$/static/res_html/picture_layer_classic_modl_regression_depth_18_0.1_conv_swish_conv1d_133_.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/plot_result.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/images/logo.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -342,24 +333,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/epidemic_prevention_notice.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
+        <state relative-caret-position="1298">
           <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/static/js/plot_result.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="156" column="34" lean-forward="true" selection-start-line="156" selection-start-column="34" selection-end-line="156" selection-end-column="34" />
-          <folding>
-            <element signature="e#8360#8367#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="308">
+          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/visualization.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
+        <state relative-caret-position="4664">
           <caret line="212" column="71" selection-start-line="212" selection-start-column="71" selection-end-line="212" selection-end-column="71" />
           <folding>
             <element signature="n#style#0;n#div#3;n#div#4;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -372,6 +360,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
           <caret line="185" column="1" selection-start-line="185" selection-start-column="1" selection-end-line="185" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="125" column="23" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
+          <folding>
+            <element signature="e#8360#8367#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
